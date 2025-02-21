@@ -81,7 +81,7 @@ const Footer = () => {
             <h3 className="font-bold mb-2 text-gray-400">Amazon Web Services</h3>
             <p className="text-gray-500">Scalable Cloud Computing Services</p>
           </div>
-          <div>
+          <div className="hover:underline cursor-pointer">
             <h3 className="font-bold mb-2 text-gray-400">Audible</h3>
             <p className="text-gray-500">Download Audio Books</p>
           </div>

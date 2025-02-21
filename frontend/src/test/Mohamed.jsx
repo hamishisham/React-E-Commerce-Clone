@@ -1,6 +1,12 @@
+import { products } from "../services/productService";
 const Mohamed = () => {
-    return <h1>Mohamed</h1>;
-  };
-  
-  export default Mohamed; 
-  
+	console.log(products);
+
+	return (
+		<>
+			<h1>Mohamed</h1>
+		</>
+	);
+};
+
+export default Mohamed;

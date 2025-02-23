@@ -81,7 +81,7 @@ const Header = () => {
       )}
 
 {/* Bottom Navigation (Hidden on small screens) */}
-<nav className="hidden md:flex bg-gray-800 text-sm w-full fixed left-0 right-0">
+<nav className="hidden md:flex bg-gray-800 text-sm w-full left-0 right-0">
   <div className="flex items-center px-0 w-full">
     <div className="cursor-pointer hidden sm:flex items-center text-sm border border-transparent p-2 rounded-md hover:border-white transition duration-300">
       <FaBars className="text-xl mr-1" />

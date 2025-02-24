@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser, loginUser } from "../redux/authSlice";
 import { useState } from "react";

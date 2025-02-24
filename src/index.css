@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inika:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 12.45px;
+  line-height: 15.06px;
+  letter-spacing: 0%;
+}
+
+.radio-container input {
+  display: none;
+}
+
+.checkmark {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 0.89px solid #000000;
+  display: inline-block;
+  margin-right: 8px;
+  transition: border-color 0.3s;
+}
+
+.radio-container input:checked + .checkmark {
+  border: 2px solid #1f8394;
+}
+
+@media (max-width: 900px) {
+  .radio-group {
+    gap: 5px;
+  }
+
+  .radio-container {
+    align-items: flex-start;
+    font-size: 8px;
+  }
+
+  .checkmark {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+}

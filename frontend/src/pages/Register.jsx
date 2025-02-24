@@ -3,16 +3,18 @@ import Layout from "../components/auth/Layout";
 import useInput from "../hooks/useInput";
 import ErrorMsg from "../components/auth/ErrorMsg";
 import EyeImage from "../components/auth/EyeImage";
+import { NAME_REGEX, MAIL_REGEX, PASS_REGEX } from "../utils/regex";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../redux/authSlice";
 
 const Register = () => {
 	//Component logic . . .
 	const [showPass, setShowPass] = useState(false);
-
-	// Regular expression for validating name (only letters allowed)
-	const NAME_REGEX = /^[A-Za-z\s]+$/;
-	// Regular expression for validating email format
-	const MAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+	const dispatch = useDispatch();
+	const { loading, error } = useSelector((state) => state.auth);
+	const navigate = useNavigate();
 
 	// Validation functions
 	const validateName = (val) =>
@@ -20,7 +22,9 @@ const Register = () => {
 	const validateEmail = (val) =>
 		val && !val.match(MAIL_REGEX) ? "Invalid Email" : "";
 	const validatePassword = (val) =>
-		val && val.length < 6 ? "Must be at least 6 characters" : "";
+		val && (!val.match(PASS_REGEX) || val.length < 6)
+			? "Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character."
+			: "";
 	const validateConfirmPassword = (val) =>
 		val && val !== password.value ? "Passwords do not match" : "";
 
@@ -40,13 +44,20 @@ const Register = () => {
 		if (!confirmPassword.value)
 			confirmPassword.setError("This field is required");
 
-		if (name.error || email.error || password.error || confirmPassword.error)
+		if (name.error || email.error || password.error || confirmPassword.error) {
 			return;
+		}
 
-		console.table({
-			n: name.value,
-			e: email.value,
-			p: password.value,
+		dispatch(
+			registerUser({
+				name: name.value.trim(),
+				email: email.value,
+				password: password.value,
+			})
+		).unwrap().then(() => {
+			navigate("/login");
+		}).catch((err) => {
+			console.error("Registration failed:",err);
 		});
 	};
 
@@ -132,13 +143,21 @@ const Register = () => {
 							value={confirmPassword.value}
 							onChange={confirmPassword.handleChange}
 						/>
-						<ErrorMsg message={confirmPassword.error} />
+					{/* Show Error Message if Registration Fails */}
+					<ErrorMsg message={confirmPassword.error} />
 					</div>
 
 					{/* Submit Button */}
-					<button type="submit" className="submit" onClick={formSubmit}>
-						Submit
+					<button
+						type="submit"
+						className="submit"
+						onClick={formSubmit}
+						disabled={loading}
+					>
+						{loading ? "Registering..." : "Submit"}
 					</button>
+					{/**Show error if registration fails */}
+					{error && <ErrorMsg message={error} />}
 				</fieldset>
 				{/* Divider */}
 				<div className="w-full md:max-w-sm h-[1px] bg-[#d9d9d9]"></div>

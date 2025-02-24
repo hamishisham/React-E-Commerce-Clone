@@ -3,12 +3,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Load users from localStorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
-// Password validation function
-const isValidPassword = (password) => {
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  return regex.test(password);
-};
-
 // Register a new user
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
@@ -18,13 +12,6 @@ export const registerUser = createAsyncThunk(
     // Check if email already exists
     if (users.some((user) => user.email === email)) {
       return rejectWithValue("Email is already registered.");
-    }
-
-    // Validate password complexity
-    if (!isValidPassword(password)) {
-      return rejectWithValue(
-        "Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character."
-      );
     }
 
     // Add new user to localStorage

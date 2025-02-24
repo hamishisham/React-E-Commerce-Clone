@@ -3,19 +3,26 @@ import Layout from "../components/auth/Layout";
 import useInput from "../hooks/useInput";
 import ErrorMsg from "../components/auth/ErrorMsg";
 import EyeImage from "../components/auth/EyeImage";
+import { MAIL_REGEX, PASS_REGEX } from "../utils/regex";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../redux/authSlice";
 
 const Login = () => {
 	const [showPass, setShowPass] = useState(false);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const { loading, error } = useSelector((state) => state.auth);
 
-	// Regular expression for validating email format
-	const MAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 	// Validation functions
 	const validateEmail = (val) =>
 		val && !val.match(MAIL_REGEX) ? "Invalid Email" : "";
 	const validatePassword = (val) =>
-		val && val.length < 6 ? "Must be at least 6 characters" : "";
+		val && (!val.match(PASS_REGEX) || val.length < 6)
+			? "Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character."
+			: "";
 
 	// Input hooks
 	const email = useInput("", validateEmail);
@@ -27,7 +34,18 @@ const Login = () => {
 		if (!email.value) email.setError("This field is required");
 		if (!password.value) password.setError("This field is required");
 		if (email.error || password.error) return;
+
+		dispatch(
+			loginUser({
+				email: email.value,
+				password: password.value,
+			})
+		)
+			.unwrap()
+			.then(() => navigate("/"))
+			.catch((err) => console.error("Login failed",err));
 	};
+
 	return (
 		<Layout>
 			{/* Sign Form */}
@@ -60,7 +78,7 @@ const Login = () => {
 							Password
 						</label>
 						<input
-							type="password"
+							type={showPass ? "text" : "password"}
 							id="password"
 							name="password"
 							className={`input ${
@@ -74,9 +92,17 @@ const Login = () => {
 					</div>
 
 					{/* Submit Button */}
-					<button type="submit" className="submit" onClick={formSubmit}>
-						continue
+					<button
+						type="submit"
+						className="submit"
+						onClick={formSubmit}
+						disabled={loading}
+					>
+						{loading ? "Signing in..." : "continue"}
 					</button>
+					{/* Show Error Message if Login Fails */}
+					{error && <ErrorMsg message={error} />}
+					
 					{/* Terms and Privacy Links */}
 					<p className="text-[10px] md:text-[12px]">
 						By continuing, you agree to Amazon’s{" "}

@@ -1,7 +1,7 @@
 import './auth.css';
 import PropTypes from "prop-types";
-import AuthFooter from "../../components/auth/AuthFooter";
-import AuthHeader from "../../components/auth/AuthHeader";
+import AuthFooter from "./AuthFooter";
+import AuthHeader from "./AuthHeader";
 
 const Layout = ({ children }) => {
 	return (

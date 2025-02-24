@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const languages = [
@@ -8,46 +8,51 @@ const languages = [
 ];
 
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]); // Default: English
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    // Load from localStorage or default to English
+    const savedLang = localStorage.getItem("selectedLanguage");
+    return savedLang ? JSON.parse(savedLang) : languages[0];
+  });
+
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef(null);
 
+  useEffect(() => {
+    // Save selected language to localStorage
+    localStorage.setItem("selectedLanguage", JSON.stringify(selectedLanguage));
+  }, [selectedLanguage]);
+
   const handleMouseEnter = () => {
-    clearTimeout(timeoutRef.current); // Cancel any pending close event
+    clearTimeout(timeoutRef.current);
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 300); // Short delay before closing
+    }, 300);
   };
 
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language);
-    setIsOpen(false); // Close dropdown on selection
+    setIsOpen(false);
   };
 
   return (
-    <div 
-      className="relative" 
-      onMouseEnter={handleMouseEnter} 
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Hoverable Button */}
-      <button className="px-2 py-2 flex items-center gap-2 border border-transparent hover:border-white hover:rounded-md ">
-  <img src={selectedLanguage.flag} alt={selectedLanguage.code} className="w-5 h-5 rounded-full" />
-  {selectedLanguage.name} 
-  <IoIosArrowDown size={12} />
-</button>
-
+      <button className="px-2 py-2 flex items-center gap-2 border border-transparent hover:border-white hover:rounded-md">
+        <img src={selectedLanguage.flag} alt={selectedLanguage.code} className="w-5 h-5 rounded-full" />
+        {selectedLanguage.name}
+        <IoIosArrowDown size={12} />
+      </button>
 
       {/* Dropdown Content */}
       {isOpen && (
         <div className="absolute bg-white text-black right-0 mt-2 w-40 rounded-md shadow-lg border">
           <ul>
             {languages.map((language) => (
-              <li 
+              <li
                 key={language.code}
                 className="px-4 py-2 flex items-center gap-2 hover:bg-gray-200 cursor-pointer"
                 onClick={() => handleLanguageSelect(language)}

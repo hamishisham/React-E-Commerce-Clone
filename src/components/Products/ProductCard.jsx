@@ -7,14 +7,20 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import img from "../../assets/image.png";
 import ReactStars from "react-rating-stars-component";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const ProductCard = () => {
+  const smallScreen = useMediaQuery("(max-width:600px)");
+  const mediumScreen = useMediaQuery("(min-width:601px) and (max-width:960px)");
+
+  const size = smallScreen ? 10 : mediumScreen ? 15 : 20;
+
   const setting = {
-    size: { xs: 10, sm: 15, md: 20 },
+    size: size,
     count: 5,
     color: "#FFCC00",
     activeColor: "#FF9900",
@@ -39,7 +45,7 @@ const ProductCard = () => {
           <CardMedia
             component="img"
             image={img}
-            alt="green iguana"
+            alt="product img"
             sx={{
               width: { xs: "100%", md: "255px" },
               height: { xs: "100%", sm: "210px", md: "196px" },
@@ -49,7 +55,11 @@ const ProductCard = () => {
           />
         </CardActionArea>
 
-        <CardContent>
+        <CardContent
+          sx={{
+            padding: { xs: "10px", md: "16px" },
+          }}
+        >
           <Typography
             variant="h5"
             component="div"
@@ -75,20 +85,25 @@ const ProductCard = () => {
                 display: "flex",
                 alignItems: "center",
                 mt: { xs: "12px", md: "16px" },
+                width: { xs: "auto" },
               }}
             >
               <ReactStars {...setting} />
               <MdOutlineKeyboardArrowDown
-                style={{ fontSize: "20px", color: "black", marginLeft: "-1px" }}
+                style={{
+                  fontSize: "20px",
+                  color: "black",
+                  marginLeft: "-1px",
+                }}
               />
               <Typography
                 sx={{
                   fontFamily: "Inter",
                   fontWeight: 400,
-                  fontSize: { xs: "12px", md: "16.65px" },
+                  fontSize: { xs: "8px", md: "16.65px" },
                   lineHeight: { xs: "auto", md: "20.63px" },
                   color: "#1F8394",
-                  ml: { xs: "2px", md: "10px" },
+                  ml: { xs: "0px", md: "10px" },
                 }}
               >
                 13,204

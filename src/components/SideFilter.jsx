@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 
@@ -9,8 +9,13 @@ const SideFilter = () => {
     setSelectedPrice(event.target.value);
   };
 
+  const smallScreen = useMediaQuery("(max-width:600px)");
+  const mediumScreen = useMediaQuery("(min-width:601px) and (max-width:960px)");
+
+  const size = smallScreen ? 10 : mediumScreen ? 15 : 20;
+
   const setting = {
-    size: { xs: 5, sm: 15, md: 20 },
+    size: size,
     count: 5,
     color: "#FFCC00",
     activeColor: "#FF9900",

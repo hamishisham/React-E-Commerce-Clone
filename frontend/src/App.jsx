@@ -11,6 +11,7 @@ import Omar from "./test/Omar";
 import Eman from "./test/Eman";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import CategoryProducts from "./pages/CategoryProducts";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/products/category/:categoryName" element={<CategoryProducts />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/haneen" element={<Haneen />} />

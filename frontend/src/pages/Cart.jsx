@@ -1,6 +1,7 @@
 import Layout from "../components/Layout/Layout";
 import CartProductCard from "../components/Cart/CartProductCard";
 import productImage from "../assets/image.png"; // Replace with actual image
+import { products } from "../services/productService";
 
 const cartItems = [
   {
@@ -19,6 +20,7 @@ const cartItems = [
 ];
 
 const Cart = () => {
+  console.log(products);
   return (
     <Layout>
       <div className="max-w-3xl mx-auto bg-white p-4 shadow-md rounded-md">

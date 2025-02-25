@@ -4,14 +4,14 @@ import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 const CartProductCard = ({ item = {} }) => {
   return (
     <div className="border-t pt-4 pb-4">
-      <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
         <img
           src={item?.image || "default-image.jpg"}
           alt={item?.name || "Product"}
           className="w-24 h-24 object-cover border rounded-md"
         />
 
-        <div className="flex-1">
+        <div className="flex-1 text-center sm:text-left">
           <h3 className="text-sm font-semibold">{item?.name || "Unknown Product"}</h3>
           <p className="text-green-600 text-xs">{item?.stockStatus || "Unavailable"}</p>
           <p className="text-gray-500 text-xs">Eligible for FREE delivery</p>
@@ -25,7 +25,7 @@ const CartProductCard = ({ item = {} }) => {
             <span className="font-semibold">Pattern Name:</span> {item?.pattern || "N/A"}
           </p>
 
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex items-center justify-center sm:justify-start gap-2 mt-2">
             <button className="border px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200 text-xs">
               <FaMinus />
             </button>
@@ -43,7 +43,7 @@ const CartProductCard = ({ item = {} }) => {
           </div>
         </div>
 
-        <div className="text-right">
+        <div className="text-center sm:text-right w-full sm:w-auto">
           {item?.discount && (
             <span className="text-red-500 font-semibold text-xs bg-red-100 px-2 py-1 rounded">
               {item.discount}

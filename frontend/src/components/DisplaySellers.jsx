@@ -14,12 +14,12 @@ function DisplaySellers({ title, sellersImages, link = "" }) {
   useEffect(() => {
     if (ulElem.current) {
       console.log("sellersImages.length:", sellersImages.length); // Debug: Check length
-      const ulWidth = ulElem.current.offsetWidth;
+      const ulWidth = ulElem?.current.offsetWidth;
       const liWidth = 224; // Fixed width of each <li>
       setDivWidth(
         Math.floor(
           (ulWidth /
-            Math.round((liWidth * sellersImages.length) / ulWidth) /
+            Math.ceil((liWidth * sellersImages.length) / ulWidth) /
             ulWidth) *
             100
         )
@@ -28,7 +28,9 @@ function DisplaySellers({ title, sellersImages, link = "" }) {
   }, [sellersImages.length]);
   function nextSlide() {
     const imagesPerSlide = Math.floor(ulElem.current.offsetWidth / 224);
+    const ulWidth = ulElem?.current.offsetWidth;
     console.log(translateVal);
+    console.log(ulWidth);
     if (
       Math.abs(translateVal) <
       224 * (sellersImages.length - imagesPerSlide)
@@ -39,7 +41,7 @@ function DisplaySellers({ title, sellersImages, link = "" }) {
       });
 
       setTranslateVal((prev) => {
-        const newValue = Math.abs(prev) + ulElem?.current.offsetWidth;
+        const newValue = Math.abs(prev) + ulWidth;
         return -newValue;
       });
     }
@@ -90,7 +92,10 @@ function DisplaySellers({ title, sellersImages, link = "" }) {
             onClick={prevSlide}
           />
           <MdArrowForwardIos
-            className={`bg-white py-8 px-1  rounded cursor-pointer w-10 h-24`}
+            className={`bg-white py-8 px-1  rounded cursor-pointer w-10 h-24  ${
+              Math.abs(translateVal) > ulElem?.current?.offsetWidth &&
+              "opacity-50"
+            }`}
             onClick={nextSlide}
           />
         </div>

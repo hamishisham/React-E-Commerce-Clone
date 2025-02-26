@@ -12,6 +12,7 @@ import Eman from "./test/Eman";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import CategoryProducts from "./pages/CategoryProducts";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/products/category/:categoryName" element={<CategoryProducts />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />}/>
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/haneen" element={<Haneen />} />
         <Route path="/mohamed" element={<Mohamed />} />

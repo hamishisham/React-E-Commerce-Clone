@@ -7,7 +7,7 @@ import { MAIL_REGEX, PASS_REGEX } from "../utils/regex";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../redux/authSlice";
+import { loginUser } from "../redux/slices/authSlice";
 
 const Login = () => {
 	const [showPass, setShowPass] = useState(false);

@@ -7,7 +7,7 @@ import { NAME_REGEX, MAIL_REGEX, PASS_REGEX } from "../utils/regex";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../redux/authSlice";
+import { registerUser } from "../redux/slices/authSlice";
 
 const Register = () => {
 	//Component logic . . .

@@ -1,6 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser, loginUser } from "../redux/authSlice";
+import { registerUser, loginUser } from "../redux/slices/authSlice";
 import { useState } from "react";
 
 const Hamis = () => {

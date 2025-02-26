@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { logoutUser } from "../../redux/authSlice"; 
+import { logoutUser } from "../../redux/slices/authSlice"; 
 import { useNavigate } from "react-router-dom";
 
 const AccountDropdown = () => {

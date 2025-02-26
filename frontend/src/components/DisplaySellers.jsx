@@ -61,7 +61,7 @@ function DisplaySellers({ title, sellersImages, link = "" }) {
   }
   return (
     <div className="bg-white relative py-6 ps-8 font-bold text-2xl w-[89.3%]  m-auto flex flex-col justify-between gap-3">
-      <div className="flex gap-4 ">
+      <div className="flex gap-4 w-full flex-wrap text-wrap sm:text-xl">
         <h2>{title}</h2>
         <a href="#" className="text-[#1f8394] no-underline font-normal">
           {link}

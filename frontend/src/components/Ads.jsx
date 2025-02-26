@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Ads = ({ img, title = "" }) => {
   return (
-    <div className="flex gap-1 flex-col w-[48%] h-40 justify-between ">
+    <div className="flex gap-1 flex-col w-[48%] sm:w-[40%] h-40 justify-between ">
       <img src={img} alt="" className="w-full h-full" />
       <p className="text-xs font-normal w-full text-wrap">{title || ""}</p>
     </div>

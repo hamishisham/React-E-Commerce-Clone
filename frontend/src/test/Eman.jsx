@@ -17,7 +17,7 @@ const Eman = () => {
         {/* Carousel for home Ads */}
         <Carousel />
         {/* display ads */}
-        <div className="px-8 relative w-screen -mt-52 flex flex-col items-center gap-8">
+        <div className="px-8 relative w-screen lg:-mt-52 sm:-mt-24 md:-mt-12  flex flex-col items-center gap-8">
           <AdsList Ads={Ads} />
           <DisplaySellers
             title="Best Sellers in Clothing & Accessories"

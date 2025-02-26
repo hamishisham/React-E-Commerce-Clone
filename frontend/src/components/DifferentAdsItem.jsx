@@ -7,8 +7,8 @@ function DifferentAdsItem() {
     setCurrentImg(e.target.src);
   }
   return (
-    <div className="py-5 px-3 flex flex-col  gap-2 w-[21%]  bg-slate-200">
-      <h2 className="text-2xl font-bold text-wrap w-4/5 ">
+    <div className="py-5 px-3 flex flex-col  gap-2 lg:w-[21%] sm:w-4/5 md:w-[45%]  bg-slate-200">
+      <h2 className="lg:text-2xl font-bold text-wrap w-4/5 sm:text-xl ">
         Best Sellers in Toys & Games
       </h2>
       <div className="flex justify-center w-full h-36 bg-white">

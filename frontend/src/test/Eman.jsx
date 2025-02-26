@@ -8,6 +8,7 @@ import {
   bestSellersImages2,
 } from "../services/adsInfo";
 import Layout from "./../components/Layout/Layout";
+
 import DifferentAdsItem from "../components/DifferentAdsItem";
 
 const Eman = () => {

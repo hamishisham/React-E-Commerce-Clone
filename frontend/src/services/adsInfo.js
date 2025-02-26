@@ -30,7 +30,6 @@ import ads29 from "../assets/ads29.png";
 import ads30 from "../assets/ads30.png";
 import ads31 from "../assets/ads31.png";
 import ads32 from "../assets/ads32.png";
-import best1 from "../assets/best1.png";
 
 const Ads = [
   {

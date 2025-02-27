@@ -7,6 +7,21 @@ const Cart = () => {
   const { cartItems, totalPrice } = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userName = user ? user.name : "Guest"; 
+
+  const handleProceedToCheckout = () => {
+    const checkoutData = {
+      userName,
+      cartItems,
+      totalPrice,
+    };
+
+    localStorage.setItem("checkoutData", JSON.stringify(checkoutData));
+
+    navigate("/checkout");
+  };
+
   return (
     <Layout>
       <div className="max-w-3xl mx-auto bg-white p-4 shadow-md rounded-md">
@@ -33,7 +48,7 @@ const Cart = () => {
         {/* Checkout Button */}
         {cartItems.length > 0 && (
           <button
-            onClick={() => navigate("/orders")}
+            onClick={handleProceedToCheckout}
             className="w-full mt-4 bg-yellow-500 text-black py-2 rounded-md font-semibold hover:bg-yellow-600 transition"
           >
             Proceed to Checkout

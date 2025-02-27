@@ -20,12 +20,12 @@ const Home = () => {
         <Carousel />
         {/* display ads */}
         <div className="px-8 w-full relative  lg:-mt-52 sm:-mt-24 md:-mt-12  flex flex-col items-center gap-8">
-          <AdsList Ads={Ads} />
+          <AdsList Ads={Ads} key="devicesAds" />
           <DisplaySellers
             title="Best Sellers in Clothing & Accessories"
             sellersImages={bestSellersImages}
           />
-          <AdsList Ads={Ads2}>
+          <AdsList Ads={Ads2} key="fashionAds">
             <DifferentAdsItem />
           </AdsList>
           <DisplaySellers

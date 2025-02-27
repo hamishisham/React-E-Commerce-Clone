@@ -13,6 +13,7 @@ import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import CategoryProducts from "./pages/CategoryProducts";
 import NotFound from "./pages/NotFound";
+import Orders from "./pages/Orders";
 
 const App = () => {
   return (
@@ -26,13 +27,13 @@ const App = () => {
         <Route path="/products/category/:categoryName" element={<CategoryProducts />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />}/>
+        <Route path="/orders" element={<Orders />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/haneen" element={<Haneen />} />
         <Route path="/mohamed" element={<Mohamed />} />
         <Route path="/omar" element={<Omar />} />
         <Route path="/eman" element={<Eman />} />
         <Route path="/hamis" element={<Hamis />} />
-
       </Routes>
     </Router>
   );

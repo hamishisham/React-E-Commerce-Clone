@@ -38,19 +38,19 @@ const Ads = [
 
     images: [
       {
-        src: ads1,
+        src: "https://s3-alpha-sig.figma.com/img/6c4e/3fbe/2fe9060c5ea8d58ce660fbd768da2905?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oJ3qamrreH-3F3fuy0PD5~AGQjSo5Z8GsIIgir~zgNa~Zcj1p0yNSUc6CI9BDrxzoAY9jdEk1vPH4ORg7VzSl4y4XCDt4RQcPUpfAfUJC-W1viuZxdefrfv8jm9yZecnmj59fDwFy~JA0fJlk1e0N6rH2raLit0Qic-Tq9Q-l8FPBRg-tdVlC0nzbipmhU5Yoff3dRMklDUxGqTfZ-JvXaMS7o1u79oFK5RNz2Qt3ajcD4pY~CWzE29JfPJvE0xfvi6pyCYefneiEQSdAwl7BZLtPxHsbo~XVRwJ6z2SWQuQAFtDVItRIb8cO1355Vi6pBSWZen~L9Xh2CCHhHahgA__",
         title: "Cushion covers, bedsheets & more",
       },
       {
-        src: ads2,
+        src: "https://s3-alpha-sig.figma.com/img/b075/2c3d/ee0615f35319656454a301384fc0d4da?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=YevjOa2oACRJDB~zSt2~46KUQ6DE89Sr~-z~ggSI4HPlHxUXnuGb1PaBKbQhG9zhqUq4eEqzlTIB-NCNjdhIW-M4p4XQ5cRiit6xjk~125U7JyGIosj9C6oeANFpsfScVqlMOfFi2apLdirDvHCyvlgUBVfjTvMHPBpyO1Bkp5C-LPCca0fcarHbg-N8gh2OeU2G9MKCfmL3CAoF3awNZRGx2hMihULICTJj6eF6XcU7sOdS~~cudXHYQGxmble~lnLiEJhBymB3w~2M4siaoYLPJ06DGNb~vqhRshesMVccYmD1D7C8RYJ0-q7GgQo-64C-pSQItZzXO8VQzbeEuw__",
         title: "Figurines, vases & more",
       },
       {
-        src: ads3,
+        src: "https://s3-alpha-sig.figma.com/img/4e04/77aa/4f5dd4a25a45c18cd98b6c1952c42986?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=W~7CKS9mSnds0DtMcEA9BmB6UwnE88YXpkICps57zV8-RqYAkEw4pRlE7K-8tHeO2ZZbcK-js1AG1N94BdLDLSFvmwDTBNoM5gn1YHOWPsSUqi424EOV~G0E5CJLs0SzVmLyvPtXD-lGpp50ewygN8Av3cFNs5ZO6NCC2Ot54UOGmgLtQWcnfow-l5wms37qTPENUvUNQM0zYO6nHfTWDeUm66LxRLaaR7cD6c5s81jw1-Z8nfFr5akM7nNs2WiyXpgUL9bHCRUOt4pCT4Xi-p5B5qWWG3VyjjMKAZlh46ibI5hNYb8Jns7KDU8A3C7SX2mUgV77YRenofncyw1QUg__",
         title: "Home storage",
       },
       {
-        src: ads4,
+        src: "https://s3-alpha-sig.figma.com/img/a38a/454d/c2a0e0b2e195e0e42acd739af81f67d6?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jR6DNAg6CAlURrU-231P0rUqkJeRwn-qikjPrbmZkOskMCNyPlKq2Zg5sWxoAW4JgEKnnz7B1sVDgObPpYsnV4M5uowShu~ITcVdXv-~FSqRNOYsllnGzVKgHQ5otqh~FTT2l5DCgSIfnM2CATfUULnqRWnrVcGTeJnlTcK4tZHtf94IVFJf52HeW4qXuY6E7IxwX7~bfKFmE-Kh4gyQmfKngYkJ47G-p6paRUE7VaRGt1UCv~kXngEhKgzn9YraQ~FQmvdGFjLIB4efNdbuWucWMAE1QbqRm5535CvMKbrgdXPfcIKMN2AKw6qphDPtBT0zD57DSccrpxLboQ2j8g__",
         title: "Lighting solutions",
       },
     ],
@@ -61,19 +61,19 @@ const Ads = [
 
     images: [
       {
-        src: ads5,
+        src: "https://s3-alpha-sig.figma.com/img/a38a/454d/c2a0e0b2e195e0e42acd739af81f67d6?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jR6DNAg6CAlURrU-231P0rUqkJeRwn-qikjPrbmZkOskMCNyPlKq2Zg5sWxoAW4JgEKnnz7B1sVDgObPpYsnV4M5uowShu~ITcVdXv-~FSqRNOYsllnGzVKgHQ5otqh~FTT2l5DCgSIfnM2CATfUULnqRWnrVcGTeJnlTcK4tZHtf94IVFJf52HeW4qXuY6E7IxwX7~bfKFmE-Kh4gyQmfKngYkJ47G-p6paRUE7VaRGt1UCv~kXngEhKgzn9YraQ~FQmvdGFjLIB4efNdbuWucWMAE1QbqRm5535CvMKbrgdXPfcIKMN2AKw6qphDPtBT0zD57DSccrpxLboQ2j8g__",
         title: "Air Conditioners",
       },
       {
-        src: ads6,
+        src: "https://s3-alpha-sig.figma.com/img/47f8/6ab1/566c980d681040836993fd5651e02d7b?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=GqGlu0UU-yU6k2-ZZ3qtyVXnBUnKKV1FbCfi0r6OHoYqk3PehlWrEeXXU--3h-suE6PsbX1ELjhQw9i-qvjS4F6NyUPjyWMg~h7BBDVrZOt3CSfTqY47Ja1bRCHNXBypgTm21WJnK9M70MN94mJXFHf99tQNkeAxuKU0jFnVvAJrEhnl5Dsx9q56Vdyw~E9eIoFWK5lrESIyPWtmtr03E94by71dZ4nIhYI5r16dR~TGtQ~~bOV5xOiChY7IKOLhx8kpF-8o3cx0zs5U7YnaNWUEwfYbBm7hjNSmfg8viIUBV-ZNq6~rzE1H6s4E-XTwIKW19kzMjiMeSqCb7nLk-g__",
         title: "Refrigerators",
       },
       {
-        src: ads7,
+        src: "https://s3-alpha-sig.figma.com/img/9f96/1058/d436744c716042ee9b8a08a28466452e?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SBzEl6KWAN8jQEn1UH5~ac0YaeLJVWAzQ0tT-bgTd3YNrBswdrILiFU~LiBJIRdepTGz4qH-YYSJXE6AbrDVyf2OD~PjPFMtyN82-YI1vHgvrpC2yk0VcUHiTO97p~wE03dHkW9JoTMr5iYU~yVgNrjfGDYhw1bvLBVj22r5YzGqVbTexsggpFRxtVu1hKFs8pJ5QAG3TKk1fCfbMtHL0B1pdABavp2VaduwwvBOBwEoKEzh06f2kvIO8mkxqA6cWPah3NTka3CESLaI46qFJQUPfADrPoJ~akpr7k3QGHVp1iTKb2xUSWk9o3zYTMIcINrQzoZpBHNdQ6SnNI1aQQ__",
         title: "Microwabes",
       },
       {
-        src: ads8,
+        src: "https://s3-alpha-sig.figma.com/img/a33b/e4a8/a339812deae723533bc81271dfa1cedb?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cER4WK0ljxPYzHUdJs2t9OAoEimuoNLHwerr3hyuG2FJOjetfSaPMHdxiUeUa-P-Kw0YlaTv~YIQjypsVdY4jMh8OlC2~HLaezvpgY9hj0-0N1-tCTzlOOfgKUEf61rmmwrhf4Wb9ps0xmLXrLPAF~uZW77E5CkRfxbynXiZh-B-wrvsAT9T4jzUxZ8Es6RbF6bWLDS-X5QANs7e8o1BFwrO-LX8Uai4qtxWrfxJtjWYpu6LppF2XRZqabq6M1AyAosutFO5iaaLRVtte69xKAcUPpEOyoKG6edrRO9UkM4~aou7LN3KPmz2peV3GLLhOv9NnONQg3BtWZKoIFrIzg__",
         title: "Washing machines",
       },
     ],
@@ -84,19 +84,19 @@ const Ads = [
 
     images: [
       {
-        src: ads9,
+        src: "https://s3-alpha-sig.figma.com/img/14ea/876d/180c5f743a16c3d2d073fb57765f1faf?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HGmGoEGKcCydqABPfIeOOAwEkWPjTOKA0awkJB75eFiFefk0-cTJzzq3hJ1DvMV4hj4sKhyFR2FY2xva61Hv~HzbyKrZBhD~a-rdxCyJQJbSoiURnvCn~~EvkIQrvVrAgLighkyiC-~-Gi66zDwl3sxN7FCOTILTXTCuvO24rQ-0TBtFj-uclrUZGxAwLML~ob8X65TQ0dCiQBMKqLntuy2eIZDAa1~7Jns-vq6b9T023tEvcAuK6unBl3KIYyKe84Drnx9hBfpq6ENxPjtEq1piv0jd4znvz4VvtmcH7nsTVBn-SP6IdzKM4JxhKhhnLcr-Hh2F0RlyLEZMY-ekWg__",
         title: "Starting ₹249| boAt",
       },
       {
-        src: ads10,
+        src: "https://s3-alpha-sig.figma.com/img/a4ac/2797/a6c3a1c5b43e0d9d9dfa33206bf74409?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=dMXih7TGKUkKGxl1KmI5NUu3R~nHCZZOCfNAmltQFxpDWfgJqsX60BWQhS5czwvcc1-Vb-uS15-LOfWCrmOOQEBHkhFkiHNsgc0WfMLcQtZn43gHliuWs7qaKkvtOZRnIDik-7-077kkn2BiXODgMqhSUdJqW7MfYI0e8RPlgljx9ir0bY-PjoJQVB8uzc8~vXO13Ux1nrGNXLINUZEipwz2VLDTBhY018uVcb2DnScKbm69gYJ8NiRfWdpdk9AWzpBgROKGEUr0PpfsKfrFQu44pDVZnm6Y2lZ180eNT60jF030Z8CUZCgj~aEgM8up-u97g-pLAHTJpYv-ZGLKaw__",
         title: "Starting ₹349| boult",
       },
       {
-        src: ads11,
+        src: "https://s3-alpha-sig.figma.com/img/cdaa/f97a/2638b10fbd39fd591bc89b3a4316706e?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=dFyD42B04scrGbeC9~Rda4kj2pePipx0NAgMGadsAko5~5YCv1ctvmv~qOfkzw1VtynF1038pzF1k4gLOfSZIO8MRzwlAtet2VVq4~hnSgmMY9ezppzk6kcbx-kQe~51AYxDc2TBcnrBF3O7ONAKhIXoGbcKulbQU7YP9pVRPn5BuxqxFSGdvaXWkskvrXeAG8uGdQqy32pdlA9l8Vj9cgxeWfYXWvVDZjfe4HONVTWQrUpc9yE2vRF3-rHMw82riZ4WEJPtsbSLPbbgI~WoKAaxv8KpYxzVc0uCxzgcKtDWAJhZVT9H7FQJ5-MKmDwGJip8JHM2SQeZ3Ideuvg-lA__",
         title: "Starting ₹649| Noise",
       },
       {
-        src: ads12,
+        src: "https://s3-alpha-sig.figma.com/img/a24a/8581/90f82e9f53ac8ea329d9f4a164ce1983?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=E-DJhdBM-5VkWDjl3~cNOiJSZzUGFIls9OoRLtqBZLQE7mw71-1gfIwayfoeovunt8viu1MXTOHMzvV51xyOsuak53qHSLmYUDnVGk898lg2IKR6yzuaNOPPYpidD9NH9EcKfPGlSmdcmlo3JNr5bHYhjTrHG7Z~zQCV-SH9qBvN5i4013hfbLnEZUDX7xl1zVn5YW~vnuDYTK3UPwdWNnfQaRGJLXU15Ls-4KTPZaozklEFbNQt8mwcPsvnHJegm8Jp1w1~hX2dVDS476OJjR8oXe9eMX~DjGuBcsy-XUVnO5D2kotXfBRngo1ONpQn5zvteF~uYO~9GVeeNyewcw__",
         title: "Starting ₹149| Zebronics",
       },
     ],
@@ -107,19 +107,19 @@ const Ads = [
 
     images: [
       {
-        src: ads13,
+        src: "https://s3-alpha-sig.figma.com/img/32fa/f0d9/62772939829c2a2a13f725d471c98300?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mTkHrf27C25PHA1XxuETjMy7CigkIzPeVY7R3ZA8rw1KR9FKqt-4V09D4cPc2NiMKMDoy4xYmuvp4q1-HzoQmOSg1gPIUuKB6xu3HSEqvwx6GEBtdEMZ4-NCznJf7LNgrJ7wUcO5AJ0gRcD6W43MMW4~FxLLA2I3JfbfvmyzXE3eACPHMDdxu~6S6Igsgge9LRpo9SV2FQL9Z4Zl3e-aHvTSUpifykn~oEoFgT0Bi1hVJ7cMYNpDwyMiJHryJ5efy-w-VIDXE~Yt~SoQ5MdsKTpPMZ1UqcgBXwBuVVkjLfga1ZfTeb1LUTvBf~x3y8T3fPXD5Nzul7EvFEK9MZQEZg__",
         title: "Staring ₹299|Home storage &...",
       },
       {
-        src: ads14,
+        src: "https://s3-alpha-sig.figma.com/img/4878/4c2e/18aaaacf9ba03299e4cc09a3ce17a422?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ShgE52yQkC2~sjYXgCM~B7SPdVpq8jVMbuHRntGi-dza1N514X2hW4nriRDiqct-~noxK5SXJWaD5ntwdx6fjHlBeNAfWIR9DyMIvOOqVO5DPEoqcI9qO9XvjARa2i2fOPd3O-3gO-ZPffhbzeyfqnfMWKHeKSM4tkLtKciR0Ccph7pAbq7C9ufW4zY4FFhzdVHRspKCKL8lYDgM1delH0o1TbegUP~0Yzoy-74YDls3-Oc42Vh6bWzvBrkIhEhOZW93JOANbrjzNnnPZjade8~cx86tJMl~gefPkvM5QdpSwqg-G7lZT6w6D8rKSAyUvvmV5jYvA6Ve08ZVEypJzw__",
         title: "Up to 60% off |Storage &racks",
       },
       {
-        src: ads15,
+        src: "https://s3-alpha-sig.figma.com/img/4878/4c2e/18aaaacf9ba03299e4cc09a3ce17a422?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ShgE52yQkC2~sjYXgCM~B7SPdVpq8jVMbuHRntGi-dza1N514X2hW4nriRDiqct-~noxK5SXJWaD5ntwdx6fjHlBeNAfWIR9DyMIvOOqVO5DPEoqcI9qO9XvjARa2i2fOPd3O-3gO-ZPffhbzeyfqnfMWKHeKSM4tkLtKciR0Ccph7pAbq7C9ufW4zY4FFhzdVHRspKCKL8lYDgM1delH0o1TbegUP~0Yzoy-74YDls3-Oc42Vh6bWzvBrkIhEhOZW93JOANbrjzNnnPZjade8~cx86tJMl~gefPkvM5QdpSwqg-G7lZT6w6D8rKSAyUvvmV5jYvA6Ve08ZVEypJzw__",
         title: "Staring ₹99|Toys & games",
       },
       {
-        src: ads16,
+        src: "https://s3-alpha-sig.figma.com/img/eb57/94cb/c3a5a783f8fa5c16a02401415c252727?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=hrYOhJHr-2DWOEcWWVb3sV~sQw4nq2sX8~37dsyePyar0z5Xh3IeRZbStASZTms0cVeOkFUcJjVQCiAlhl0VgOgmR2vZjhh5fwsBC-2pHs0zceBX5BVIv-m5MoQ3gNXtbuHoWwWijWxPOV1Z8WnxUwyi6bkMUxe30CmDRWZt4XtuHWdsrS0CG7Ho7ApoDEF3RIAzW1J2YoDOs9kadle~Ive35UMUSY-QpUj5Y029benZ6TANQSllw75W1gaBguO65c0rXcaQbE0u3R~0jaifMqXidNlRrQzG~~oILBfrj-1NJO9~ipZ87JWmjC0OOi11fJJMek8i3QechwX5icoX3g__",
         title: "Up to 60% off| Jackets,dresses &...",
       },
     ],

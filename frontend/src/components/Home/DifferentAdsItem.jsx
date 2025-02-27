@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { adsItem } from "../services/adsInfo";
+import { adsItem } from "../../services/adsInfo";
 
 function DifferentAdsItem() {
   const [currentImg, setCurrentImg] = useState(adsItem[0]);

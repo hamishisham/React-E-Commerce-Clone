@@ -1,6 +1,6 @@
-import AdsList from "../components/AdsList";
-import Carousel from "../components/Carousel";
-import DisplaySellers from "../components/DisplaySellers";
+import AdsList from "../components/Home/AdsList";
+import Carousel from "../components/Home/Carousel";
+import DisplaySellers from "../components/Home/DisplaySellers";
 import {
   Ads,
   Ads2,
@@ -9,7 +9,7 @@ import {
 } from "../services/adsInfo";
 import Layout from "./../components/Layout/Layout";
 
-import DifferentAdsItem from "../components/DifferentAdsItem";
+import DifferentAdsItem from "../components/Home/DifferentAdsItem";
 
 const Eman = () => {
   return (

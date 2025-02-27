@@ -2,28 +2,6 @@ import Ads from "./Ads";
 
 import PropTypes from "prop-types";
 
-// const adsImages = [
-//   {
-//     id: 4,
-//     src: ads1,
-//     title: "Cushion covers, bedsheets & more",
-//   },
-//   {
-//     id: 2,
-//     src: ads2,
-//     title: "Figurines, vases & more",
-//   },
-//   {
-//     id: 3,
-//     src: ads3,
-//     title: "Home storage",
-//   },
-//   {
-//     id: 4,
-//     src: ads4,
-//     title: "Lighting solutions",
-//   },
-// ];
 const AdsItem = ({ adsInfo }) => {
   // console.log(adsInfo);
   return (

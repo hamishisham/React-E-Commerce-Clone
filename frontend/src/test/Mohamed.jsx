@@ -1,10 +1,7 @@
-import { products } from "../services/productService";
-const Mohamed = () => {
-	console.log(products);
 
+const Mohamed = () => {
 	return (
 		<>
-			<h1>Mohamed</h1>
 		</>
 	);
 };

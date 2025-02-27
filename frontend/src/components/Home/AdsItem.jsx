@@ -1,11 +1,16 @@
 import Ads from "./Ads";
 
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const AdsItem = ({ adsInfo }) => {
+  const navigate = useNavigate();
   // console.log(adsInfo);
   return (
-    <div className="py-5 px-3 flex flex-col justify-between gap-3 lg:w-[21%] sm:w-4/5 md:w-[45%] bg-slate-200">
+    <div
+      className="py-5 px-3 flex flex-col justify-between gap-3 lg:w-[21%] sm:w-4/5 md:w-[45%] cursor-pointer bg-white"
+      onClick={() => navigate("/products")}
+    >
       <h2 className="lg:text-2xl sm:text-xl  font-bold text-wrap w-4/5 ">
         {adsInfo.header}
       </h2>

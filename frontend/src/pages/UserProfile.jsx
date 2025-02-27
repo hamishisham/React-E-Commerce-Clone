@@ -22,6 +22,7 @@ import {
   updateUserPassword,
   logoutUser,
 } from "../redux/slices/authSlice";
+import Layout from "../components/Layout/Layout";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,6 @@ const UserProfile = () => {
   // Get user from Redux store instead of localStorage
   const {
     user,
-    loading: reduxLoading,
-    error: reduxError,
   } = useSelector((state) => state.auth);
 
   const [open, setOpen] = useState(false);
@@ -163,6 +162,7 @@ const UserProfile = () => {
   };
 
   return (
+    <Layout>
     <Box sx={{ px: 5, fontFamily: "Inter" }}>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>
@@ -290,6 +290,7 @@ const UserProfile = () => {
       </Paper>
       <ToastContainer position="top-right" autoClose={3000} />
     </Box>
+    </Layout>
   );
 };
 

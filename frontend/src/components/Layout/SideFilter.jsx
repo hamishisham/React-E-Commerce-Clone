@@ -1,6 +1,5 @@
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, Rating, Typography, useMediaQuery } from "@mui/material";
 import { useState, useEffect } from "react";
-import ReactStars from "react-rating-stars-component";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, filterProducts } from "../../redux/slices/productSlice";
 
@@ -137,10 +136,13 @@ const SideFilter = () => {
         >
           Customer Reviews
         </Typography>
-        <ReactStars
-          {...setting}
-          value={selectedRating}
-          onChange={handleRatingChange}
+        <Rating
+          name="half-rating"
+          precision={0.5}
+          onChange={(event, newValue) => {
+            handleRatingChange(newValue);
+          }}
+          defaultValue={selectedRating}
         />
       </div>
 

@@ -14,9 +14,9 @@ import ReactStars from "react-rating-stars-component";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import {
-  addToCart,
   updateProductRating,
 } from "../../redux/slices/productSlice";
+import {addToCart} from '../../redux/slices/cartSlice'
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
@@ -51,11 +51,27 @@ const ProductCard = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product.id));
+    if (!product) {
+      console.error("Product data is missing.");
+      return;
+    }
+  
+    console.log("Adding to cart:", product);
+  
+    dispatch(
+      addToCart({
+        id: product.id,
+        name: product.title,
+        price: product.price,
+        image: product.image,
+        quantity: 1, // Ensure default quantity is always 1
+      })
+    );
   };
+  
 
   const handleProductClick = () => {
-    navigate(`/product/${product.id}`);
+    navigate(`/products/${product.id}`);
   };
 
   return (
@@ -225,7 +241,7 @@ const ProductCard = ({ product }) => {
             px: { xs: "10px", md: "15px" },
             mt: { xs: "-12px" },
           }}
-          onClick={handleAddToCart}
+          onClick={()=> handleAddToCart()}
         >
           Add to cart
         </Button>

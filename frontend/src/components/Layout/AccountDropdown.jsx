@@ -88,10 +88,10 @@ const AccountDropdown = () => {
                 <h3 className="font-bold text-gray-700">Your Account</h3>
                 <ul className="text-sm text-gray-600 space-y-1 mt-1">
                   {[
-                    { label: "Your Account", path: "/account" },
+                    { label: "Your Account", path: "/profile" },
                     { label: "Your Orders", path: "/orders" },
                     { label: "Your Addresses", path: "/addresses" },
-                    { label: "Your Lists", path: "/lists" },
+                    { label: "Your Lists", path: "/wishlist" },
                     { label: "Your Recommendations", path: "/recommendations" },
                     {
                       label: "Your Subscribe & Save Items",

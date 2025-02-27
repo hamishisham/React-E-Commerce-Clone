@@ -25,7 +25,7 @@ const Carousel = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="w-screen relative mt-7 z-0">
+    <div className="w-full relative  z-0">
       <div className="item w-full ">
         <img src={images[index]} alt="" className="w-full h-[70vh]" />
       </div>

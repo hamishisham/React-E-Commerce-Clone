@@ -7,13 +7,14 @@ import {
   bestSellersImages,
   bestSellersImages2,
 } from "../services/adsInfo";
-import Layout from "./../components/Layout/Layout";
 
 import DifferentAdsItem from "../components/Home/DifferentAdsItem";
-import { PAGE } from "./../../node_modules/stylis/src/Enum";
+import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
 const Home = () => {
   return (
-    <Layout>
+    <div>
+      <Header />
       <div className="bg-[#575757] ">
         {/* Carousel for home Ads */}
         <Carousel />
@@ -34,7 +35,8 @@ const Home = () => {
           />
         </div>
       </div>
-    </Layout>
+    <Footer />
+    </div>
   );
 };
 

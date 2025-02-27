@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/slices/authSlice"; 
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../../redux/slices/cartSlice";
+import { clearWishlist } from "../../redux/slices/wishlistSlice";
 
 const AccountDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +27,10 @@ const AccountDropdown = () => {
 
   const handleLogout = async () => {
     await dispatch(logoutUser());
+    dispatch(clearCart());
+    dispatch(clearWishlist());
+
+
     navigate("/login");
   };
 

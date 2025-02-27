@@ -42,8 +42,11 @@ const Login = () => {
 			})
 		)
 			.unwrap()
-			.then(() => navigate("/"))
-			.catch((err) => console.error("Login failed",err));
+			.then(() => {
+				navigate("/");
+				window.location.reload();
+			  })
+						  .catch((err) => console.error("Login failed",err));
 	};
 
 	return (

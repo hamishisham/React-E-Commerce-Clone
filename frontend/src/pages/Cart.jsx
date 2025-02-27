@@ -33,7 +33,7 @@ const Cart = () => {
         {/* Checkout Button */}
         {cartItems.length > 0 && (
           <button
-            onClick={() => navigate("/checkout")}
+            onClick={() => navigate("/orders")}
             className="w-full mt-4 bg-yellow-500 text-black py-2 rounded-md font-semibold hover:bg-yellow-600 transition"
           >
             Proceed to Checkout

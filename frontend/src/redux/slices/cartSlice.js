@@ -1,9 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Load cart from localStorage
+// Function to get the logged-in user's email
+const getCurrentUserEmail = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  return user ? user.email : null;
+};
+
+// Load cart from localStorage based on the logged-in user
 const loadCartFromLocalStorage = () => {
   try {
-    const savedCart = localStorage.getItem("cart");
+    const userEmail = getCurrentUserEmail();
+    if (!userEmail) return { cartItems: [], totalQuantity: 0, totalPrice: 0 };
+
+    const savedCart = localStorage.getItem(`cart_${userEmail}`);
     return savedCart ? JSON.parse(savedCart) : { cartItems: [], totalQuantity: 0, totalPrice: 0 };
   } catch (error) {
     console.error("Error loading cart from localStorage:", error);
@@ -11,7 +20,19 @@ const loadCartFromLocalStorage = () => {
   }
 };
 
-// Initial state from localStorage or default values
+// Save cart to localStorage for the logged-in user
+const saveCartToLocalStorage = (cartState) => {
+  try {
+    const userEmail = getCurrentUserEmail();
+    if (!userEmail) return;
+
+    localStorage.setItem(`cart_${userEmail}`, JSON.stringify(cartState));
+  } catch (error) {
+    console.error("Error saving cart to localStorage:", error);
+  }
+};
+
+// Initial state
 const initialState = loadCartFromLocalStorage();
 
 const cartSlice = createSlice({
@@ -87,17 +108,16 @@ const cartSlice = createSlice({
     
       saveCartToLocalStorage(state); // Save updated cart to localStorage
     },
+
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
+
+      saveCartToLocalStorage(state); // Save to localStorage
+    },
   },
 });
 
-// Save cart to localStorage
-const saveCartToLocalStorage = (cartState) => {
-  try {
-    localStorage.setItem("cart", JSON.stringify(cartState));
-  } catch (error) {
-    console.error("Error saving cart to localStorage:", error);
-  }
-};
-
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity, updateQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity, updateQuantity, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

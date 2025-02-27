@@ -14,8 +14,8 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
 
   // Fetch cart and wishlist items from Redux
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const wishlistItems = useSelector((state) => state.wishlist.items);
+  const cartItems = useSelector((state) => state.cart.cartItems) || [];
+  const wishlistItems = useSelector((state) => state.wishlist.items) || [];
 
   useEffect(() => {
     const fetchCategories = async () => {

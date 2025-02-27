@@ -10,7 +10,6 @@ import {
 import Layout from "./../components/Layout/Layout";
 
 import DifferentAdsItem from "../components/Home/DifferentAdsItem";
-import { PAGE } from "./../../node_modules/stylis/src/Enum";
 const Home = () => {
   return (
     <Layout>

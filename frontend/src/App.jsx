@@ -11,21 +11,23 @@ import Omar from "./test/Omar";
 import Eman from "./test/Eman";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
-import CategoryProducts from "./pages/CategoryProducts";
 import NotFound from "./pages/NotFound";
 import Orders from "./pages/Orders";
 import Checkout from "./pages/Checkout";
+import UserProfile from "./pages/UserProfile";
 
 const App = () => {
   return (
-    <Router> {/* Wrap everything inside BrowserRouter */}
+    <Router>
+      {" "}
+      {/* Wrap everything inside BrowserRouter */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/profile" element={<UserProfile />} />
         <Route path="/products/:id" element={<SingleProduct />} />
-        <Route path="/products/category/:categoryName" element={<CategoryProducts />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />}/>
         <Route path="/orders" element={<Orders />} />

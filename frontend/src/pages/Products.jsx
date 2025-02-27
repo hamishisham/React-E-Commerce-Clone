@@ -2,7 +2,7 @@ import { Box, Grid } from "@mui/material";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import CardProductsContainer from "../components/Products/CardProductsContainer";
-import SideFilter from "../components/SideFilter";
+import SideFilter from "../components/Layout/SideFilter";
 
 const Products = () => {
   return (

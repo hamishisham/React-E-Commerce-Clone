@@ -7,7 +7,11 @@ const Hamis = () => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
 
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const [isLogin, setIsLogin] = useState(true);
   const [formError, setFormError] = useState("");
 
@@ -23,7 +27,9 @@ const Hamis = () => {
 
     try {
       if (isLogin) {
-        await dispatch(loginUser({ email: formData.email, password: formData.password })).unwrap();
+        await dispatch(
+          loginUser({ email: formData.email, password: formData.password })
+        ).unwrap();
       } else {
         await dispatch(registerUser(formData)).unwrap();
       }
@@ -48,7 +54,9 @@ const Hamis = () => {
               type="text"
               placeholder="Full Name"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               className="p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
             />
           )}
@@ -57,7 +65,9 @@ const Hamis = () => {
             type="email"
             placeholder="Email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className="p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
           />
 
@@ -65,7 +75,9 @@ const Hamis = () => {
             type="password"
             placeholder="Password"
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             className="p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
           />
 
@@ -79,7 +91,7 @@ const Hamis = () => {
         </form>
 
         <p className="text-center mt-4 text-sm">
-          {isLogin ? "Don't have an account?" : "Already have an account?"} {" "}
+          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
           <button
             onClick={() => setIsLogin(!isLogin)}
             className="text-blue-500 hover:underline"

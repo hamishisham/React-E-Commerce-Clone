@@ -42,7 +42,11 @@ const AccountDropdown = () => {
   };
 
   return (
-    <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button className="px-4 py-2 bg-gray-900 text-white rounded-md border border-transparent hover:border-white">
         <span>Hello, {user ? user.name.split(" ")[0] : "Sign in"}</span>
         <div className="font-bold">Account & Lists</div>
@@ -60,7 +64,10 @@ const AccountDropdown = () => {
               </button>
               <p className="text-sm text-gray-600 mt-1">
                 New customer?{" "}
-                <button onClick={handleRegister} className="text-blue-500 hover:underline">
+                <button
+                  onClick={handleRegister}
+                  className="text-blue-500 hover:underline"
+                >
                   Start here
                 </button>
               </p>
@@ -69,7 +76,10 @@ const AccountDropdown = () => {
             <div className="flex mt-3">
               <div className="w-1/2 pr-3 border-r">
                 <h3 className="font-bold text-gray-700">Your Lists</h3>
-                <button onClick={() => handleNavigation("/lists")} className="text-blue-500 block mt-1 hover:underline">
+                <button
+                  onClick={() => handleNavigation("/lists")}
+                  className="text-blue-500 block mt-1 hover:underline"
+                >
                   Create a List
                 </button>
               </div>
@@ -78,12 +88,15 @@ const AccountDropdown = () => {
                 <h3 className="font-bold text-gray-700">Your Account</h3>
                 <ul className="text-sm text-gray-600 space-y-1 mt-1">
                   {[
-                    { label: "Your Account", path: "/account" },
+                    { label: "Your Account", path: "/profile" },
                     { label: "Your Orders", path: "/orders" },
                     { label: "Your Addresses", path: "/addresses" },
-                    { label: "Your Lists", path: "/lists" },
+                    { label: "Your Lists", path: "/wishlist" },
                     { label: "Your Recommendations", path: "/recommendations" },
-                    { label: "Your Subscribe & Save Items", path: "/subscribe" },
+                    {
+                      label: "Your Subscribe & Save Items",
+                      path: "/subscribe",
+                    },
                     { label: "Your Prime Membership", path: "/prime" },
                     { label: "Your Seller Account", path: "/seller" },
                   ].map(({ label, path }) => (
@@ -97,7 +110,10 @@ const AccountDropdown = () => {
                     </li>
                   ))}
                   <li>
-                    <button className="text-red-500 hover:text-red-700 w-full text-left" onClick={handleLogout}>
+                    <button
+                      className="text-red-500 hover:text-red-700 w-full text-left"
+                      onClick={handleLogout}
+                    >
                       Sign Out
                     </button>
                   </li>

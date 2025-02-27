@@ -11,7 +11,10 @@ import Omar from "./test/Omar";
 import Eman from "./test/Eman";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
-import ProfilePage from "./pages/ProfilePage";
+import CategoryProducts from "./pages/CategoryProducts";
+import NotFound from "./pages/NotFound";
+import Orders from "./pages/Orders";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   return (
@@ -25,7 +28,11 @@ const App = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="/products/category/:categoryName" element={<CategoryProducts />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />}/>
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/haneen" element={<Haneen />} />
         <Route path="/mohamed" element={<Mohamed />} />

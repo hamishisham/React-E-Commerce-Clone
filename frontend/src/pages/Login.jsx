@@ -34,16 +34,19 @@ const Login = () => {
     if (!password.value) password.setError("This field is required");
     if (email.error || password.error) return;
 
-    dispatch(
-      loginUser({
-        email: email.value,
-        password: password.value,
-      })
-    )
-      .unwrap()
-      .then(() => navigate("/"))
-      .catch((err) => console.error("Login failed", err));
-  };
+		dispatch(
+			loginUser({
+				email: email.value,
+				password: password.value,
+			})
+		)
+			.unwrap()
+			.then(() => {
+				navigate("/");
+				window.location.reload();
+			  })
+						  .catch((err) => console.error("Login failed",err));
+	};
 
   return (
     <Layout>

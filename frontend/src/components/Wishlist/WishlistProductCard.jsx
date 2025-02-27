@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { FaTrash } from "react-icons/fa";
 
-const WishlistProductCard = ({ item, onRemove }) => {
+const WishlistProductCard = ({ item, onRemove , onMoveToCart }) => {
   if (!item) {
     return <p className="text-red-500">Error: Product data is missing.</p>;
   }
@@ -25,7 +25,8 @@ const WishlistProductCard = ({ item, onRemove }) => {
         {/* Buttons */}
         <div className="flex items-center gap-3 mt-2">
           {/* Styled "Add to Cart" Button */}
-          <button className="text-black bg-yellow-400 w-24 md:w-36 h-7 rounded-full text-xs md:text-sm font-light px-3 md:px-4 py-1 md:py-2 hover:bg-yellow-500 transition flex items-center justify-center">
+          <button className="text-black bg-yellow-400 w-24 md:w-36 h-7 rounded-full text-xs md:text-sm font-light px-3 md:px-4 py-1 md:py-2 hover:bg-yellow-500 transition flex items-center justify-center"  
+          onClick={() => onMoveToCart?.(item)}>
             Add to Cart
             </button>
 
@@ -53,6 +54,7 @@ WishlistProductCard.propTypes = {
     price: PropTypes.number,
   }),
   onRemove: PropTypes.func,
+  onMoveToCart: PropTypes.func, 
 };
 
 // 🔹 **Default Props (Handles Missing Item)**

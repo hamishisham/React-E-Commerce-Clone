@@ -14,8 +14,8 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
 
   // Fetch cart and wishlist items from Redux
-  const cartItems = useSelector((state) => state.cart.cartItems) || [];
-  const wishlistItems = useSelector((state) => state.wishlist.items) || [];
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const wishlistItems = useSelector((state) => state.wishlist.items);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -35,18 +35,18 @@ const Header = () => {
       <div className="flex container mx-auto justify-between items-center px-4">
         {/* Left: Logo & Location */}
         <div className="flex items-center gap-3">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 lg:hidden">
             <FaBars className="text-xl" />
           </button>
           <img src={amazon} alt="Amazon" className="w-16 h-auto" />
-          <div className="hidden md:flex items-center text-sm">
+          <div className="hidden lg:flex items-center text-sm">
             <FiMapPin className="mr-1" />
             <span>Deliver to Egypt</span>
           </div>
         </div>
 
-        {/* 🔍 Always Visible Search Bar */}
-        <div className="flex-1 mx-4">
+        {/* 🔍 Desktop Search Bar */}
+        <div className="hidden lg:block">
           <SearchBar categories={categories} />
         </div>
 
@@ -63,11 +63,11 @@ const Header = () => {
                 {wishlistItems.length}
               </span>
             )}
-            <span className="ml-1 hidden md:inline">Wishlist</span>
+            <span className="ml-1 hidden lg:inline">Wishlist</span>
           </Link>
 
           {/* Orders */}
-          <div className="hidden md:block cursor-pointer">
+          <div className="hidden lg:block cursor-pointer">
             <span>Returns</span>
             <div className="font-bold">& Orders</div>
           </div>
@@ -80,20 +80,39 @@ const Header = () => {
                 {cartItems.length}
               </span>
             )}
-            <span className="ml-1 hidden md:inline">Cart</span>
+            <span className="ml-1 hidden lg:inline">Cart</span>
           </Link>
         </div>
       </div>
 
-      {/* 📍 Mobile Delivery Location */}
-      <div className="md:hidden flex items-center px-4 py-2 text-sm bg-gray-700">
+      {/* 🔍 Mobile & Medium Search Bar - Full Width */}
+      <div className="lg:hidden mb-2 mt-2">
+        <SearchBar categories={categories}  />
+      </div>
+
+      {/* 📍 Mobile & Medium Delivery Location */}
+      <div className="lg:hidden flex items-center px-4 py-2 text-sm bg-gray-700">
         <FiMapPin className="mr-2" />
         <span>Deliver to Egypt ▾</span>
       </div>
 
-      {/* 📱 Mobile Menu */}
+      {/* Navigation Bar with "All" and Categories */}
+      <nav className="bg-gray-800 py-2 text-sm hidden lg:flex justify-start gap-4">
+        <div className=" lg:flex hover:underline px-3">
+        <FaBars className="text-xl mr-2" />
+        <Link to="/products" >All</Link>
+        </div>
+        
+        {categories.map((category, index) => (
+          <Link key={index} to={`/products/category/${category}`} className="hover:underline px-3">
+            {category}
+          </Link>
+        ))}
+      </nav>
+
+      {/* 📱 Mobile & Medium Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-gray-800 p-3 text-sm flex flex-col gap-2">
+        <div className="lg:hidden bg-gray-800 p-3 text-sm flex flex-col gap-2">
           {categories.map((category, index) => (
             <Link key={index} to={`/products/category/${category}`} className="cursor-pointer hover:border-white">
               {category}

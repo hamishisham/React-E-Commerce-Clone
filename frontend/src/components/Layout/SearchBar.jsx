@@ -50,8 +50,7 @@ const SearchBar = ({ categories }) => {
   };
 
   return (
-    <div className="relative hidden min-[1281px]:flex bg-white text-black rounded-md flex-grow max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl">
-      {/* Category Select */}
+<div className="relative flex w-full max-w-none bg-white text-black rounded-lg  shadow-md flex-grow">      {/* Category Select */}
       <select
         className="p-2 bg-gray-200 text-black border-r"
         value={selectedCategory}

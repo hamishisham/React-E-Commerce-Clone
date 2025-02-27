@@ -43,8 +43,10 @@ const Header = () => {
           <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 lg:hidden">
             <FaBars className="text-xl" />
           </button>
-          <img src={amazon} alt="Amazon" className="w-16 h-auto" />
-          <div className="hidden lg:flex items-center text-sm">
+                <Link to="/">
+        <img src={amazon} alt="Amazon" className="w-16 h-auto cursor-pointer" />
+      </Link>       
+         <div className="hidden lg:flex items-center text-sm">
             <FiMapPin className="mr-1" />
             <span>Deliver to Egypt</span>
           </div>

@@ -1,26 +1,32 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import CartProductCard from "../components/Cart/CartProductCard";
+import { clearCart } from "../redux/slices/cartSlice";
 
 const Cart = () => {
   const { cartItems, totalPrice } = useSelector((state) => state.cart);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const userName = user ? user.name : "Guest"; 
 
   const handleProceedToCheckout = () => {
-    const checkoutData = {
-      userName,
-      cartItems,
-      totalPrice,
-    };
-
-    localStorage.setItem("checkoutData", JSON.stringify(checkoutData));
-
-    navigate("/checkout");
+    let storedOrders = JSON.parse(localStorage.getItem("checkoutData")) || []; // Ensure it's an array
+  
+    if (!Array.isArray(storedOrders)) {
+      storedOrders = []; // Reset it to an empty array if it's not an array
+    }
+  
+    storedOrders.push({ cartItems, totalPrice, date: new Date().toISOString() }); // Store relevant data
+  
+    localStorage.setItem("checkoutData", JSON.stringify(storedOrders)); // Save updated data
+    dispatch(clearCart()); // Clear cart after checkout
+    navigate("/orders");
   };
+  
 
   return (
     <Layout>

@@ -3,7 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const languages = [
   { code: "us", name: "US", flag: "https://flagcdn.com/w40/us.png" },
-  { code: "sa", name: "AR", flag: "https://flagcdn.com/w40/sa.png" },
+  { code: "eg", name: "AR", flag: "https://flagcdn.com/w40/eg.png" },
   { code: "in", name: "EN", flag: "https://flagcdn.com/w40/in.png" },
 ];
 

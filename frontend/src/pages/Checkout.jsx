@@ -4,61 +4,72 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-	const [checkoutData, setCheckoutData] = useState(null);
-	const [day, setToday] = useState("");
-	const [nextTwoDays, setNextTwoDays] = useState("");
+	const [checkoutData, setCheckoutData] = useState([]);
+	const [userName, setUserName] = useState("");
 	const navigate = useNavigate();
 	const delivery = 0;
+
+	{
+		/**Format date */
+	}
+	const formatDate = (dateString) => {
+		if (!dateString) return "N/A";
+		const date = new Date(dateString);
+		return new Intl.DateTimeFormat("en-US", {
+			weekday: "short",
+			month: "short",
+			day: "2-digit",
+			year: "numeric",
+		}).format(date);
+	};
+	const nextTwoDays = (dd) => {
+		if (!dd) return "N/A";
+		const date = new Date(dd);
+		date.setDate(date.getDate() + 2);
+		return formatDate(date);
+	};
+
+	{
+		/**Stored checkout and username */
+	}
 	useEffect(() => {
 		const storedData = JSON.parse(localStorage.getItem("checkoutData")) || [];
-		if (storedData) {
-			setCheckoutData(storedData);
-		}
-		const currentDate = new Date();
+		setCheckoutData(storedData);
 
-		setToday(
-			new Intl.DateTimeFormat("en-US", {
-				weekday: "short",
-				month: "short",
-				day: "2-digit",
-				year: "numeric",
-			}).format(currentDate)
-		);
-		const formatDate = (date) => {
-			return new Intl.DateTimeFormat("en-US", {
-				weekday: "short",
-				month: "short",
-				day: "2-digit",
-				year: "numeric",
-			}).format(date);
-		};
-
-		const futureDate = new Date();
-		futureDate.setDate(currentDate.getDate() + 2);
-		setNextTwoDays(formatDate(futureDate));
+		const userName = JSON.parse(localStorage.getItem("user"));
+		setUserName(userName?.name || "Guest");
 	}, []);
-
-	if (!checkoutData) {
-		return (
-			<p className="mt-6 text-center text-gray-500">Loading checkout data...</p>
-		);
+	{
+		/**calculate all order prices */
 	}
-	const { userName, cartItems, totalPrice } = checkoutData;
+	const calculateTotal = () => {
+		return checkoutData
+			.reduce((total, order) => {
+				return (
+					total +
+					(order.cartItems?.reduce(
+						(sum, item) => sum + item.price * item.quantity,
+						0
+					) || 0)
+				);
+			}, 0)
+			.toFixed(2);
+	};
 
+	{
+		/**fill order in localstorage */
+	}
 	const fillOrders = () => {
+		if (!checkoutData.length) return alert("No Order to place!");
 		const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
 
-		const newOrder = {
+		existingOrders.push({
+			orderData: checkoutData,
 			name: userName,
-			items: cartItems,
-			price: totalPrice,
-			date: nextTwoDays,
-		};
-
-		existingOrders.push(newOrder);
+		});
 
 		localStorage.setItem("orders", JSON.stringify(existingOrders));
-
+		localStorage.removeItem("checkoutData");
 		setTimeout(() => {
 			navigate("/orders");
 		}, 500);
@@ -93,38 +104,52 @@ const Checkout = () => {
 					</header>
 					<Divider />
 					<div className="flex flex-col gap-3 lg:flex-row lg:justify-between font-IBM">
-						<div className="flex flex-col gap-y-1">
-							<h2 className="text-xl font-bold">Shipment details</h2>
-							<p className="text-sm text-[#E47911]">
-								<strong>Customer {userName}</strong>
-							</p>
-							<p className="text-sm text-green-700">
-								Estimated delivery <strong>{day} - {nextTwoDays}</strong>{" "}
-							</p>
-							{/**Cart items */}
-							<ul className="flex flex-col mt-4 gap-y-2">
-								{cartItems.map((item) => {
-									return (
-										<li className="flex items-center gap-x-2" key={item.id}>
-											<img
-												src={item.image}
-												alt={item.name}
-												className="max-w-full w-[90px] object-contain"
-											/>
-											<p className="flex flex-col gap-1">
-												<span className="text-sm">{item.name}</span>
-												<span className="text-xs text-red-700">
-													Quantity: <b>{item.quantity}</b>
-												</span>
-												<span className="text-xs text-red-700">
-													Price: <b>{item.price.toFixed(2)}</b>
-												</span>
-											</p>
-										</li>
-									);
-								})}
-							</ul>
-						</div>
+						{checkoutData.length > 0 ? (
+							checkoutData.map((order, index) => {
+								return (
+									<div key={index} className="flex flex-col gap-y-1">
+										<h2 className="text-xl font-bold">Shipment details</h2>
+										<p className="text-sm text-[#E47911]">
+											<strong>{userName}</strong>
+										</p>
+										<p className="text-sm text-green-700">
+											Estimated delivery{" "}
+											<strong>
+												{formatDate(order.date)} - {nextTwoDays(order.date)}
+											</strong>{" "}
+										</p>
+										{/**Cart items */}
+										<ul className="flex flex-col mt-4 gap-y-2">
+											{order.cartItems?.map((item) => {
+												return (
+													<li
+														className="flex items-center gap-x-2"
+														key={item.id}
+													>
+														<img
+															src={item.image}
+															alt={item.name}
+															className="max-w-full w-[90px] object-contain"
+														/>
+														<p className="flex flex-col gap-1">
+															<span className="text-sm">{item.name}</span>
+															<span className="text-xs text-red-700">
+																Quantity: <b>{item.quantity}</b>
+															</span>
+															<span className="text-xs text-red-700">
+																Price: <b>{item.price.toFixed(2)}</b>
+															</span>
+														</p>
+													</li>
+												);
+											})}
+										</ul>
+									</div>
+								);
+							})
+						) : (
+							<p className="text-center text-gray-600">No items in checkout.</p>
+						)}
 						<div className="flex flex-col border rounded gap-y-2 border-[#d5d9d9]  lg:w-80">
 							<div className="bg-[#f0f2f2] text-center py-3 px-4">
 								<button
@@ -132,7 +157,6 @@ const Checkout = () => {
 									className="w-full text-sm rounded-[2px] py-1 px-4  border border-black bg-[linear-gradient(to_bottom,#f7dfa5,#f0c14b)] cursor-pointer transition-colors ease-in-out duration-300 hover:bg-[linear-gradient(to_bottom,#f0c14b,#f0c14b)]"
 									aria-label="Place your order"
 									onClick={fillOrders}
-									disabled={!cartItems.length}
 								>
 									Place your order
 								</button>
@@ -142,18 +166,20 @@ const Checkout = () => {
 								<ul className="flex flex-col gap-y-1 after:block after:content-[''] after:w-full after:h-[1px] after:bg-[#d5d9d9] after:absolute after:bottom-[45px] after:left-0 text-sm">
 									<li className="flex justify-between ">
 										<span>Items:</span>
-										<span>{totalPrice.toFixed(2)}</span>
+										<span>{calculateTotal()}</span>
 									</li>
 									<li className="flex justify-between">
 										<span>Delivery:</span>
-										<span>{delivery}</span>
+										<span>{delivery.toFixed(2)}</span>
 									</li>
 								</ul>
 								<p className="flex justify-between mt-4">
 									<span>
 										<b>Order Total</b>
 									</span>
-									<span>{(totalPrice + delivery).toFixed(2)}</span>
+									<span>
+										{(parseFloat(calculateTotal()) + delivery).toFixed(2)}
+									</span>
 								</p>
 							</div>
 						</div>

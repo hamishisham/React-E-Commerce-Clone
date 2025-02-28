@@ -27,8 +27,6 @@ const Orders = () => {
 			optionText: "2023",
 		},
 	];
-	// const days = ['Sat','Sun','Mon','Tue','Wed', 'Thu', 'Fri'];
-	// const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	
 	useEffect(() => {
 		const storedData = JSON.parse(localStorage.getItem("orders")) || [];

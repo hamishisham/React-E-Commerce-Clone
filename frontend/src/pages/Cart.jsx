@@ -24,27 +24,27 @@ const Cart = () => {
   
     localStorage.setItem("checkoutData", JSON.stringify(storedOrders)); // Save updated data
     dispatch(clearCart()); // Clear cart after checkout
-    navigate("/orders");
+    navigate("/checkout");
   };
   
 
   return (
     <Layout>
-      <div className="max-w-3xl mx-auto bg-white p-4 shadow-md rounded-md">
-        <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
+      <div className="max-w-3xl p-4 mx-auto bg-white rounded-md shadow-md">
+        <h2 className="mb-4 text-xl font-semibold">Shopping Cart</h2>
 
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
-            <div key={item.id} className="flex justify-between items-center border-b py-4">
+            <div key={item.id} className="flex items-center justify-between py-4 border-b">
               <CartProductCard item={item} />
             </div>
           ))
         ) : (
-          <p className="text-gray-500 text-center">Your cart is empty</p>
+          <p className="text-center text-gray-500">Your cart is empty</p>
         )}
 
         {/* Subtotal Section */}
-        <div className="border-t pt-4 text-right">
+        <div className="pt-4 text-right border-t">
           <p className="text-sm font-semibold">
             Subtotal ({cartItems.length} item{cartItems.length > 1 ? "s" : ""}):{" "}
             <span className="text-lg font-bold">EGP {totalPrice.toLocaleString()}</span>
@@ -55,7 +55,7 @@ const Cart = () => {
         {cartItems.length > 0 && (
           <button
             onClick={handleProceedToCheckout}
-            className="w-full mt-4 bg-yellow-500 text-black py-2 rounded-md font-semibold hover:bg-yellow-600 transition"
+            className="w-full py-2 mt-4 font-semibold text-black transition bg-yellow-500 rounded-md hover:bg-yellow-600"
           >
             Proceed to Checkout
           </button>

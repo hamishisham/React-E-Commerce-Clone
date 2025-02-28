@@ -1,11 +1,12 @@
+import Divider from "../Divider";
 const AuthFooter = () => {
 	return (
 		<>
 			{/*divider*/}
-			<div className=" w-full h-5  after:w-full after:h-5 after:content-[''] bg-footer-divider after:block after:bg-footer-after"></div>
-      {/**footer */}
+			<Divider />
+			{/**footer */}
 			<footer className="flex flex-col items-center py-5 gap-y-3 font-IBM">
-        {/**footer links */}
+				{/**footer links */}
 				<ul className="flex items-center justify-center gap-x-2">
 					<li className="no-underline link">
 						<a
@@ -35,7 +36,7 @@ const AuthFooter = () => {
 						</a>
 					</li>
 				</ul>
-        {/**footer copyright */}
+				{/**footer copyright */}
 				<p className="text-[10px] md:text-[12px] text-black">
 					© 1996-2024, Amazon.com, Inc. or its affiliates
 				</p>

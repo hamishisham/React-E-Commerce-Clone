@@ -1,4 +1,5 @@
 import { FiGlobe } from "react-icons/fi";
+import amazon from "../../assets/Amazon.png";
 
 const Footer = () => {
   return (
@@ -59,7 +60,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="w-full bg-gray-800 py-4 text-center flex flex-wrap justify-center gap-6 px-6">
-        <img src="src/assets/Amazon.png" alt="Amazon Logo" className="w-16 h-auto" />
+        <img src={amazon} alt="Amazon Logo" className="w-16 h-auto" />
 
         <div className="border px-2 py-1 flex items-center gap-2 cursor-pointer">
           <FiGlobe /> English

@@ -69,6 +69,13 @@ const Header = () => {
             )}
             <span className="ml-1 hidden lg:inline">Wishlist</span>
           </Link>
+           {/* Orders */}
+            <Link to="/orders" className="hidden md:block cursor-pointer">
+              <div>
+                <span>Returns</span>
+                <div className="font-bold">& Orders</div>
+              </div>
+            </Link>
           {/* Cart */}
           <Link to="/cart" className="relative flex items-center">
             <FiShoppingCart className="text-2xl" />
